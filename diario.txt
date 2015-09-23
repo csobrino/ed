@@ -1,0 +1,32 @@
+__________________________________
+- - - - - - - Diario - - - - - - - 
+__________________________________
+
+    
+   1   sudo apt-get install git
+( Instalamos Git y creamos un Repositorio en Github.com )
+
+
+   2   git clone https://github.com/csobrino/ed.git /home/mati/Documentos/GitHub/
+
+( Clonamos el repositorio de Github a nuestro equipo )
+
+
+gedit hola-mundo-git.txt
+
+
+git add .
+
+
+git config --global user.name csobrino
+git config --global user.email dam.csobrino@institutoserpis.org
+
+git commit -m "Hola mundo desde git"
+
+
+git config --global push.default simple
+git config --list 
+git push 
+git status
+
+  
