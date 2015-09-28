@@ -29,4 +29,17 @@ git config --list
 git push 
 git status
 
+
+28-Septiembre-15
+Repasadas las fases de compilacion
+·Preprocesado
+ gcc -E holamundo.c > holamundo.preprocesado
+
+·Compilacion
+ gcc -S holamundo.c (-> holamundo.S ensamblador)
+
+·ensamblado
+ gcc -c holamundo.c ( -> olamundo.o codigo objeto)
+
+
   
