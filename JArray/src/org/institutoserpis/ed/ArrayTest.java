@@ -14,4 +14,12 @@ public class ArrayTest {
 		assertEquals(7, Array.menor(new int[]{9,8,12,7}));
 	}
 
+	@Test
+	public void index0f(){
+		assertEquals(0, Array.index0f(new int[]{7,21,9,13}, 7));
+		assertEquals(1, Array.index0f(new int[]{7,21,9,13}, 21));
+	
+	
+	}
+	
 }
