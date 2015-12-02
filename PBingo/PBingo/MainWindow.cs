@@ -23,7 +23,7 @@ public partial class MainWindow: Gtk.Window
 		for (uint index = 0; index < 90; index++) {
 			uint row = index / 10;
 			uint column = index % 10;
-			int numero = index + 1;
+			int numero = (int)index + 1;//el uint desborda el rangod de INT por eso le obligamos.
 			Button button = new Button ();
 			button.Label = numero.ToString();
 			button.Visible = true;
@@ -33,14 +33,14 @@ public partial class MainWindow: Gtk.Window
 		}
 
 		//Opción 2
-//for (uint row = 0; row < 9; row++)
-//for (uint column=0; column < 10; column++) {
-//uint index = row * 10 + column;
-//Button button = new Button ();
-//button.Label = (index + 1).ToString();
-//utton.Visible = true;
-//table.Attach (button, column, column + 1, row, row + 1);
-//}
+		//for (uint row = 0; row < 9; row++)
+		//for (uint column=0; column < 10; column++) {
+		//uint index = row * 10 + column;
+		//Button button = new Button ();
+		//button.Label = (index + 1).ToString();
+		//utton.Visible = true;
+		//table.Attach (button, column, column + 1, row, row + 1);
+		//}
 
 
 
@@ -50,10 +50,15 @@ public partial class MainWindow: Gtk.Window
 		buttonNumero.Clicked += delegate {
 			int indexAleatorio = random.Next (numeros.Count);
 			int numero = numeros[indexAleatorio];
-			labelNumero.Text = numero.ToString;
-			Button button = buttons[indexAleatorio];
+			numeros.RemoveAt(indexAleatorio);
+			labelNumero.Text = numero.ToString();
+
+
+			Button button = buttons[numero - 1];
 			button.ModifyBg (StateType.Normal, GREEN_COLOR);
-			Process.Start ("espeak", "-v es " + indexAleatorio);
+			Process.Start ("espeak", "-v es " + numero);
+			buttonNumero.Sensitive= numeros.Count > 0; //Cuando todos los numeros han salido el boton "siguiente" se desactiva
+			//DEVELOP BROKER
 		};
 
 
